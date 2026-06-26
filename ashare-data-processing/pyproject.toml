@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ashare-data-processing"
+version = "0.1.0"
+description = "AkShare-based A-share market data fetching, storage, and quality auditing utilities."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "AShare Data Processing Contributors" }
+]
+dependencies = [
+  "akshare==1.18.64",
+  "numpy==1.26.4",
+  "pandas==2.2.2"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==7.4.4",
+  "ruff==0.5.0"
+]
+
+[project.scripts]
+ashare-data-processing = "ashare_data_processing.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
